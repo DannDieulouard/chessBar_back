@@ -1,0 +1,235 @@
+const bars = [
+    {
+        name: "L'atelier B",
+        city: "Bordeaux",
+        address: {number: "29", street: "rue de la Rousselle", postCode: 33300, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://www.atelierb-bordeaux.fr/",
+        phone: "05 57 99 63 98",
+        game_day: "Mercredi",
+        game_time: "18h30",
+        created: new Date()
+    },
+    {
+        name: "Le Beau Jeu",
+        city: "Bordeaux",
+        address: {number: "22", street: "rue du Chai des Farines", postCode: 33000, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://lebeaujeubordeaux.com/",
+        phone: "09 55 71 82 78",
+        game_day: "Mardi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "Le Quinte & Sens",
+        city: "Bordeaux",
+        address: {number: "35", street: "rue de Gironde", postCode: 33300, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://www.facebook.com/profile.php?id=61550036344982",
+        phone: "06 69 96 86 01",
+        game_day: "Jeudi",
+        game_time: "19h30",
+        created: new Date()
+    },
+    {
+        name: "O'Tiap",
+        city: "Bordeaux",
+        address: {number: "158", street: "rue Emile Combes", postCode: 33000, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://otiap.fr/",
+        phone: "09 78 80 84 29",
+        game_day: "Jeudi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "Les Broc's",
+        city: "Bordeaux",
+        address: {number: "16", street: "place Canteloup", postCode: 33800, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://les-brocs.com/",
+        phone: "07 67 44 44 26",
+        game_day: "Dimanche",
+        game_time: "17h00",
+        created: new Date()
+    },
+    {
+        name: "Le Mosaic",
+        city: "Bordeaux",
+        address: {number: "269", street: "rue Judaïque", postCode: 33000, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://www.instagram.com/mosaic.bieres_artisanales/",
+        phone: "05 56 98 84 66",
+        game_day: "Samedi",
+        game_time: "16h00",
+        created: new Date()
+    },
+    {
+        name: "Le Magnus Pub",
+        city: "Bordeaux",
+        address: {number: "32", street: "rue de Cheverus", postCode: 33000, city: "Bordeaux"},
+        imageUrl: "",
+        website: "https://www.instagram.com/magnus_pub/",
+        phone: "05 56 98 84 66",
+        game_day: "Dimanche",
+        game_time: "18h00",
+        created: new Date()
+    },
+    {
+        name: "Les Chaises",
+        city: "Paris",
+        address: {number: "33", street: "rue de la Chine", postCode: 75020, city: "Paris"},
+        imageUrl: "",
+        website: "https://www.facebook.com/leschaises.lebar/",
+        phone: "09 51 65 08 24",
+        game_day: "Mardi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "La Taverne de Fwinax",
+        city: "Paris",
+        address: {number: "32", street: "rue Traversière", postCode: 75012, city: "Paris"},
+        imageUrl: "",
+        website: "https://www.facebook.com/p/La-Taverne-de-Fwinax-100087501427363/",
+        phone: "07 69 26 46 87",
+        game_day: "Mercredi",
+        game_time: "18h30",
+        created: new Date()
+    },
+    {
+        name: "Luppolo",
+        city: "Paris",
+        address: {number: "31", street: "rue Victor Massé", postCode: 75009, city: "Paris"},
+        imageUrl: "",
+        website: "https://luppolo-bar.fr/",
+        phone: "09 83 87 92 08",
+        game_day: "Jeudi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "Le Duchesse",
+        city: "Paris",
+        address: {number: "36", street: "rue de l'Orillon", postCode: 75011, city: "Paris"},
+        imageUrl: "",
+        website: "https://leduchesseparis.fr/",
+        phone: "07 62 38 87 54",
+        game_day: "Jeudi",
+        game_time: "20h00",
+        created: new Date()
+    },
+    {
+        name: "Les Grands Gamins",
+        city: "Paris",
+        address: {number: "19", street: "rue de Cléry", postCode: 75002, city: "Paris"},
+        imageUrl: "",
+        website: "https://lesgrandsgaminsparis.fr/",
+        phone: "06 77 60 21 33",
+        game_day: "Dimanche",
+        game_time: "19h30",
+        created: new Date()
+    },
+    {
+        name: "Café de la Cité",
+        city: "Nantes",
+        address: {number: "5", street: "rue de Valmy", postCode: 44000, city: "Nantes"},
+        imageUrl: "",
+        website: "https://cafedelacite.fr/",
+        phone: "02 51 88 21 21",
+        game_day: "Vendredi",
+        game_time: "18h00",
+        created: new Date()
+    },
+    {
+        name: "Bacardy",
+        city: "Nantes",
+        address: {number: "2", street: "place Ernest Breant", postCode: 44110, city: "Chateaubriant"},
+        imageUrl: "",
+        website: "https://villesetshopping.fr/chateaubriant/vitrine/le-bacardy/",
+        phone: "02 40 81 02 32",
+        game_day: "Vendredi",
+        game_time: "18h00",
+        created: new Date()
+    },
+    {
+        name: "Reine de Coeur",
+        city: "Rennes",
+        address: {number: "48", street: "rue de Saint-Brieuc", postCode: 35000, city: "Rennes"},
+        imageUrl: "",
+        website: "https://www.lareinedecoeur.fr/",
+        phone: "02 99 59 15 31",
+        game_day: "Lundi",
+        game_time: "20h00",
+        created: new Date()
+    },
+    {
+        name: "Babazula",
+        city: "Rennes",
+        address: {number: "182", street: "Avenue Général George S. Patton", postCode: 35700, city: "Rennes"},
+        imageUrl: "",
+        website: "https://www.facebook.com/Babazula.bar/",
+        phone: "09 51 95 37 67",
+        game_day: "Mardi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "Evasion",
+        city: "Rennes",
+        address: {number: "29", street: "Grande Rue Saint-Michel", postCode: 31400, city: "Toulouse"},
+        imageUrl: "",
+        website: "https://www.facebook.com/levasion.bar/",
+        phone: "05 81 97 03 45",
+        game_day: "Jeudi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "Bob",
+        city: "Lyon",
+        address: {number: "12", street: "Rue Imbert-Colomès", postCode: 69001, city: "Lyon"},
+        imageUrl: "",
+        website: "https://www.boblyon.fr/",
+        phone: "06 22 89 95 10",
+        game_day: "Mercredi",
+        game_time: "19h00",
+        created: new Date()
+    },
+    {
+        name: "Bar Bu",
+        city: "Lyon",
+        address: {number: "21", street: "Quai de Bondy", postCode: 69005, city: "Lyon"},
+        imageUrl: "",
+        website: "https://www.facebook.com/LeBarBuLyon/",
+        phone: "04 78 72 15 44",
+        game_day: "Lundi",
+        game_time: "19h30",
+        created: new Date()
+    },
+    {
+        name: "Le Petit Bouclard",
+        city: "Lyon",
+        address: {number: "5", street: "rue des Trois Pierres", postCode: 69007, city: "Lyon"},
+        imageUrl: "",
+        website: "https://lepetitbouclard.fr/",
+        phone: "04 72 94 33 63",
+        game_day: "Dimanche",
+        game_time: "16h30",
+        created: new Date()
+    },
+    {
+        name: "Rebuffy",
+        city: "Montpellier",
+        address: {number: "2", street: "rue Rebuffy", postCode: 34000, city: "Montpellier"},
+        imageUrl: "",
+        website: "https://www.facebook.com/p/Rebuffy-Pub-100057121043395/",
+        phone: "04 67 66 32 76",
+        game_day: "Mercredi",
+        game_time: "18h00",
+        created: new Date()
+    },
+];
+
+module.exports = bars
