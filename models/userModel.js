@@ -11,8 +11,8 @@ module.exports = (sequelize) => {
                 unique: true,
                 validate: {
                     len: {
-                        msg: "Le nom d'utilisateur doit avoir un nombre de caractères compris entre 8 et 50.",
-                        args: [8, 50]
+                        msg: "Le nom d'utilisateur doit avoir un nombre de caractères compris entre 3 et 50.",
+                        args: [3, 50]
                     }
                 },
             },
@@ -20,8 +20,17 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 type: DataTypes.STRING
             },
-            address: {
-                type: DataTypes.JSON
+            surname: {
+                type: DataTypes.STRING
+            },
+            name: {
+                type: DataTypes.STRING
+            },
+            postCode: {
+                type: DataTypes.INTEGER
+            },
+            city: {
+                type: DataTypes.STRING
             },
             // validation de mail
             email: {
@@ -32,7 +41,10 @@ module.exports = (sequelize) => {
                         msg: "email incorrect",
                     }
                 },
-            }
+            },
+            howChessbar: {
+                type: DataTypes.TEXT
+            },
         },
         {
             onDelete: 'CASCADE',

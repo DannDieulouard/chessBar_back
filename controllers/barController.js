@@ -46,6 +46,7 @@ const findBarByPk = async (req, res) => {
         if (!result) {
             return res.status(404).json({ message: `Le bar n'existe pas` })
         }
+        
         res.json({ message: 'Bar trouvé', data: result })
     } catch (error) {
         errorHandler(error, res)
