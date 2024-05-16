@@ -7,13 +7,13 @@ const { City } = require('../db/sequelizeSetup')
 router
     .route('/')
     .get(findAllCities)
-    .post(protect, createCity)
+    .post(protect, restrictTo('admin'),createCity)
 
 router
     .route('/:id')
     
     .get(findCityByPk)
-    .put(protect, restrictToOwnUser(City), updateCity)
-    .delete(protect, restrictToOwnUser(City), deleteCity)
+    .put(protect, restrictTo('admin'), updateCity)
+    .delete(protect, restrictTo('admin'), deleteCity)
 
 module.exports = router
