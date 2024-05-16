@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "development") {
 
 const barRouter = require('./routes/barRoutes')
 const userRouter = require('./routes/userRoutes')
-const reviewRouter = require('./routes/reviewRoutes')
+const cityRouter = require('./routes/cityRoutes')
 
 app.get('/', (req, res) => {
     res.json({ message: 'Homepage' })
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/bars', barRouter)
 app.use('/api/users', userRouter)
-app.use('/api/reviews', reviewRouter)
+app.use('/api/cities', cityRouter)
 
 // route de fichiers static
 app.use('/images', express.static(path.join(__dirname, 'images')));

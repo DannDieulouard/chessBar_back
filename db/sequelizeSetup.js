@@ -4,9 +4,10 @@ const bcrypt = require('bcrypt')
 const BarModel = require('../models/barModel')
 const UserModel = require('../models/userModel')
 const RoleModel = require('../models/roleModel')
+const cityModel = require('../models/cityModel');
 const mockBars = require('./bars');
 const mockUsers = require('./users');
-const reviewModel = require('../models/reviewModel');
+const mockCities = require('./cities');
 const env = process.env.NODE_ENV;
 const config = require('../configs/db-config.json')[env];
 
@@ -21,7 +22,7 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 const Bar = BarModel(sequelize);
 const User = UserModel(sequelize);
 const Role = RoleModel(sequelize);
-const Review = reviewModel(sequelize);
+const City = cityModel(sequelize);
 
 // Par défaut, tous les utilisateurs créés sont "user"
 Role.hasMany(User, {
@@ -34,19 +35,8 @@ User.belongsTo(Role);
 User.hasMany(Bar)
 Bar.belongsTo(User)
 
-Bar.hasMany(Review, {
-    foreignKey: {
-        allowNull: false,
-    },
-})
-Review.belongsTo(Bar)
-
-User.hasMany(Review, {
-    foreignKey: {
-        allowNull: false,
-    },
-})
-Review.belongsTo(User)
+City.hasMany(Bar)
+Bar.belongsTo(City)
 
 const resetDb = process.env.NODE_ENV === "development"
 
@@ -73,6 +63,14 @@ sequelize.sync({ force: resetDb })
                     console.log(error)
                 })
         })
+
+        mockCities.forEach(city => {
+            City.create(city)
+                .then()
+                .catch(error => {
+                    console.log(error)
+                })
+        })
     })
     .catch((error) => {
         console.log(error)
@@ -82,4 +80,4 @@ sequelize.authenticate()
     .then(() => console.log('La connexion à la base de données a bien été établie.'))
     .catch(error => console.error(`Impossible de se connecter à la base de données ${error}`))
 
-module.exports = { sequelize, Bar, User, Role, Review }
+module.exports = { sequelize, Bar, User, Role, City }
