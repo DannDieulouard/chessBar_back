@@ -57,7 +57,7 @@ const {
     findAllBarsRawSQL,
     createBarWithImg,
     searchBars } = require('../controllers/barController')
-const { protect, restrictToOwnUser } = require('../middlewares/auth')
+const { protect, restrictTo} = require('../middlewares/auth')
 const multer = require('../middlewares/multer-config')
 const { Bar } = require('../db/sequelizeSetup')
 
@@ -197,7 +197,7 @@ router
     *      500:
     *        description: Some error happened
     */
-    .put(protect, restrictToOwnUser(Bar), updateBar)
+    .put(protect, restrictTo('admin'), updateBar)
     /**
     * @openapi
     * /api/bars/{id}:
@@ -218,6 +218,6 @@ router
     *       404:
     *         description: The bar was not found
     */
-    .delete(protect, restrictToOwnUser(Bar), deleteBar)
+    .delete(protect, restrictTo('admin'), deleteBar)
 
 module.exports = router

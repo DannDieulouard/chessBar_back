@@ -20,7 +20,7 @@ const protect = async (req, res, next) => {
     try {
         const decoded = jwt.verify(token, SECRET_KEY);
 
-        // On vérifie que l'id contenu dans le token correspond toujours à un utilisateur dans la bdd
+    // On vérifie que l'id contenu dans le token correspond toujours à un utilisateur dans la bdd
         const result = await User.findByPk(decoded.userId, { include: Role })
         if (!result) {
             return res.status(404).json({ message: `Vous n'êtes pas authentifié` })

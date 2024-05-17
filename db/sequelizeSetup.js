@@ -25,7 +25,7 @@ const Role = RoleModel(sequelize);
 const City = cityModel(sequelize);
 
 // Par défaut, tous les utilisateurs créés sont "user"
-Role.hasMany(User, {
+Role.hasMany(User, {    
     foreignKey: {
         defaultValue: 3,
     },

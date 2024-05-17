@@ -56,7 +56,6 @@ const findBarByPk = async (req, res) => {
 const createBar = async (req, res) => {
     try {
         req.body.UserId = req.user.id
-        req.body.address = JSON.parse(req.body.address)
         const newBar = await Bar.create(req.body)
         res.status(201).json({ message: `Un bar a bien été ajouté`, data: newBar })
     } catch (error) {
@@ -68,7 +67,6 @@ const createBarWithImg = async (req, res) => {
     console.log(req.protocol, req.get('host'), req.file.filename)
     try {
         req.body.UserId = req.user.id
-        req.body.address = JSON.parse(req.body.address)
         req.body.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         const newBar = await Bar.create(req.body)
         res.status(201).json({ message: `Un bar a bien été ajouté`, data: newBar })

@@ -2,7 +2,7 @@ const bars = [
     {
         name: "L'atelier B",
         city: "Bordeaux",
-        address: {number: "29", street: "rue de la Rousselle", postCode: 33300, city: "Bordeaux"},
+        address: "29 rue de la Rousselle 33300 Bordeaux",
         imageUrl: "",
         website: "https://www.atelierb-bordeaux.fr/",
         phone: "05 57 99 63 98",
@@ -13,7 +13,7 @@ const bars = [
     {
         name: "Le Beau Jeu",
         city: "Bordeaux",
-        address: {number: "22", street: "rue du Chai des Farines", postCode: 33000, city: "Bordeaux"},
+        address: "22 rue du Chai des Farines 33300 Bordeaux",
         imageUrl: "",
         website: "https://lebeaujeubordeaux.com/",
         phone: "09 55 71 82 78",
@@ -24,7 +24,7 @@ const bars = [
     {
         name: "Le Quinte & Sens",
         city: "Bordeaux",
-        address: {number: "35", street: "rue de Gironde", postCode: 33300, city: "Bordeaux"},
+        address: "35 rue de Gironde 33300 Bordeaux",
         imageUrl: "",
         website: "https://www.facebook.com/profile.php?id=61550036344982",
         phone: "06 69 96 86 01",
@@ -35,7 +35,7 @@ const bars = [
     {
         name: "O'Tiap",
         city: "Bordeaux",
-        address: {number: "158", street: "rue Emile Combes", postCode: 33000, city: "Bordeaux"},
+        address: "158 rue Emile Combes 33000 Bordeaux",
         imageUrl: "",
         website: "https://otiap.fr/",
         phone: "09 78 80 84 29",
@@ -46,7 +46,7 @@ const bars = [
     {
         name: "Les Broc's",
         city: "Bordeaux",
-        address: {number: "16", street: "place Canteloup", postCode: 33800, city: "Bordeaux"},
+        address: "16 place Canteloup 33800 Bordeaux",
         imageUrl: "",
         website: "https://les-brocs.com/",
         phone: "07 67 44 44 26",
@@ -57,7 +57,7 @@ const bars = [
     {
         name: "Le Mosaic",
         city: "Bordeaux",
-        address: {number: "269", street: "rue Judaïque", postCode: 33000, city: "Bordeaux"},
+        address: "269 rue Judaïque 33000 Bordeaux",
         imageUrl: "",
         website: "https://www.instagram.com/mosaic.bieres_artisanales/",
         phone: "05 56 98 84 66",
@@ -68,7 +68,7 @@ const bars = [
     {
         name: "Le Magnus Pub",
         city: "Bordeaux",
-        address: {number: "32", street: "rue de Cheverus", postCode: 33000, city: "Bordeaux"},
+        address: "32 rue de Cheverus 33000 Bordeaux",
         imageUrl: "",
         website: "https://www.instagram.com/magnus_pub/",
         phone: "05 56 98 84 66",
@@ -79,7 +79,7 @@ const bars = [
     {
         name: "Les Chaises",
         city: "Paris",
-        address: {number: "33", street: "rue de la Chine", postCode: 75020, city: "Paris"},
+        address: "33 rue de la Chine 75020 Paris", 
         imageUrl: "",
         website: "https://www.facebook.com/leschaises.lebar/",
         phone: "09 51 65 08 24",
@@ -90,7 +90,7 @@ const bars = [
     {
         name: "La Taverne de Fwinax",
         city: "Paris",
-        address: {number: "32", street: "rue Traversière", postCode: 75012, city: "Paris"},
+        address: "32 rue Traversière 75012 Paris",
         imageUrl: "",
         website: "https://www.facebook.com/p/La-Taverne-de-Fwinax-100087501427363/",
         phone: "07 69 26 46 87",
@@ -101,7 +101,7 @@ const bars = [
     {
         name: "Luppolo",
         city: "Paris",
-        address: {number: "31", street: "rue Victor Massé", postCode: 75009, city: "Paris"},
+        address: "31 rue Victor Massé 75009 Paris",
         imageUrl: "",
         website: "https://luppolo-bar.fr/",
         phone: "09 83 87 92 08",
@@ -112,7 +112,7 @@ const bars = [
     {
         name: "Le Duchesse",
         city: "Paris",
-        address: {number: "36", street: "rue de l'Orillon", postCode: 75011, city: "Paris"},
+        address: "36 rue de l'Orillon 75011 Paris",
         imageUrl: "",
         website: "https://leduchesseparis.fr/",
         phone: "07 62 38 87 54",
@@ -123,7 +123,7 @@ const bars = [
     {
         name: "Les Grands Gamins",
         city: "Paris",
-        address: {number: "19", street: "rue de Cléry", postCode: 75002, city: "Paris"},
+        address: "19 rue de Cléry 75002 Paris",
         imageUrl: "",
         website: "https://lesgrandsgaminsparis.fr/",
         phone: "06 77 60 21 33",
@@ -134,7 +134,7 @@ const bars = [
     {
         name: "Café de la Cité",
         city: "Nantes",
-        address: {number: "5", street: "rue de Valmy", postCode: 44000, city: "Nantes"},
+        address: "5 rue de Valmy 44000 Nantes",
         imageUrl: "",
         website: "https://cafedelacite.fr/",
         phone: "02 51 88 21 21",
@@ -145,7 +145,7 @@ const bars = [
     {
         name: "Bacardy",
         city: "Nantes",
-        address: {number: "2", street: "place Ernest Breant", postCode: 44110, city: "Chateaubriant"},
+        address: "2 place Ernest Breant 44110 Chateaubriant",
         imageUrl: "",
         website: "https://villesetshopping.fr/chateaubriant/vitrine/le-bacardy/",
         phone: "02 40 81 02 32",
@@ -156,7 +156,7 @@ const bars = [
     {
         name: "Reine de Coeur",
         city: "Rennes",
-        address: {number: "48", street: "rue de Saint-Brieuc", postCode: 35000, city: "Rennes"},
+        address: "48 rue de Saint-Brieuc 35000 Rennes",
         imageUrl: "",
         website: "https://www.lareinedecoeur.fr/",
         phone: "02 99 59 15 31",
@@ -167,7 +167,7 @@ const bars = [
     {
         name: "Babazula",
         city: "Rennes",
-        address: {number: "182", street: "Avenue Général George S. Patton", postCode: 35700, city: "Rennes"},
+        address: "182 Avenue Général George S. Patton 35700 Rennes",
         imageUrl: "",
         website: "https://www.facebook.com/Babazula.bar/",
         phone: "09 51 95 37 67",
@@ -178,7 +178,7 @@ const bars = [
     {
         name: "Evasion",
         city: "Rennes",
-        address: {number: "29", street: "Grande Rue Saint-Michel", postCode: 31400, city: "Toulouse"},
+        address: "29 Grande Rue Saint-Michel 31400 Toulouse",
         imageUrl: "",
         website: "https://www.facebook.com/levasion.bar/",
         phone: "05 81 97 03 45",
@@ -189,7 +189,7 @@ const bars = [
     {
         name: "Bob",
         city: "Lyon",
-        address: {number: "12", street: "Rue Imbert-Colomès", postCode: 69001, city: "Lyon"},
+        address: "12 Rue Imbert-Colomès 69001 Lyon",
         imageUrl: "",
         website: "https://www.boblyon.fr/",
         phone: "06 22 89 95 10",
@@ -200,7 +200,7 @@ const bars = [
     {
         name: "Bar Bu",
         city: "Lyon",
-        address: {number: "21", street: "Quai de Bondy", postCode: 69005, city: "Lyon"},
+        address: "21 Quai de Bondy 69005 Lyon",
         imageUrl: "",
         website: "https://www.facebook.com/LeBarBuLyon/",
         phone: "04 78 72 15 44",
@@ -211,7 +211,7 @@ const bars = [
     {
         name: "Le Petit Bouclard",
         city: "Lyon",
-        address: {number: "5", street: "rue des Trois Pierres", postCode: 69007, city: "Lyon"},
+        address: "5 rue des Trois Pierres 69007 Lyon",
         imageUrl: "",
         website: "https://lepetitbouclard.fr/",
         phone: "04 72 94 33 63",
@@ -222,7 +222,7 @@ const bars = [
     {
         name: "Rebuffy",
         city: "Montpellier",
-        address: {number: "2", street: "rue Rebuffy", postCode: 34000, city: "Montpellier"},
+        address: "2 rue Rebuffy 34000 Montpellier",
         imageUrl: "",
         website: "https://www.facebook.com/p/Rebuffy-Pub-100057121043395/",
         phone: "04 67 66 32 76",
