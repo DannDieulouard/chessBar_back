@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const { protect, restrictTo } = require('../middlewares/auth')
 const { createCity, findAllCities, findCityByPk, updateCity, deleteCity } = require('../controllers/cityController')
-const { City } = require('../db/sequelizeSetup')
 
 router
     .route('/')

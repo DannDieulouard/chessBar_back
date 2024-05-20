@@ -2,11 +2,11 @@ const { City } = require("../db/sequelizeSetup")
 const { errorHandler } = require("../errorHandler/errorHandler")
 
 const findAllCities = (req, res) => {
-    res.json({ message: 'Hello Commentaire!' })
+    res.json({ message: 'Hello City!' })
 }
 
 const findCityByPk = (req, res) => {
-    res.json({ message: `Commentaire n°${req.params.id}` })
+    res.json({ message: `City n°${req.params.id}` })
 }
 
 const createCity = async (req, res) => {

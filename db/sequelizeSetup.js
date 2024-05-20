@@ -5,9 +5,13 @@ const BarModel = require('../models/barModel')
 const UserModel = require('../models/userModel')
 const RoleModel = require('../models/roleModel')
 const cityModel = require('../models/cityModel');
+const rankingModel = require('../models/rankingModel');
+const tournamentModel = require('../models/tournamentModel');
 const mockBars = require('./bars');
 const mockUsers = require('./users');
 const mockCities = require('./cities');
+const mockRankings = require('./rankings');
+const mockTournaments = require('./tournaments');
 const env = process.env.NODE_ENV;
 const config = require('../configs/db-config.json')[env];
 
@@ -23,6 +27,8 @@ const Bar = BarModel(sequelize);
 const User = UserModel(sequelize);
 const Role = RoleModel(sequelize);
 const City = cityModel(sequelize);
+const Ranking = rankingModel(sequelize);
+const Tournament = tournamentModel(sequelize);
 
 // Par défaut, tous les utilisateurs créés sont "user"
 Role.hasMany(User, {    
@@ -66,6 +72,21 @@ sequelize.sync({ force: resetDb })
 
         mockCities.forEach(city => {
             City.create(city)
+                .then()
+                .catch(error => {
+                    console.log(error)
+                })
+        })
+
+        mockRankings.forEach(ranking => {
+            Ranking.create(ranking)
+                .then()
+                .catch(error => {
+                    console.log(error)
+                })
+        })
+        mockTournaments.forEach(tournament => {
+            Tournament.create(tournament)
                 .then()
                 .catch(error => {
                     console.log(error)
