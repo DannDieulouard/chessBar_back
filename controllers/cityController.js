@@ -1,12 +1,26 @@
 const { City } = require("../db/sequelizeSetup")
 const { errorHandler } = require("../errorHandler/errorHandler")
 
-const findAllCities = (req, res) => {
-    res.json({ message: 'Hello City!' })
+const findAllCities = async (req, res) => {
+    try {
+        const result = await City.findAll()
+        res.json({ message: `Il y a ${result.length} villes`, data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
 }
 
-const findCityByPk = (req, res) => {
-    res.json({ message: `City n°${req.params.id}` })
+const findCityByPk = async (req, res) => {
+    try {
+        const result = await Bar.findByPk(req.params.id);
+        if (!result) {
+            return res.status(404).json({ message: `La ville n'existe pas` })
+        }
+        
+        res.json({ message: 'Ville trouvée', data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
 }
 
 const createCity = async (req, res) => {

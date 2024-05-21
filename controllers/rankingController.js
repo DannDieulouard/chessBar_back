@@ -1,12 +1,26 @@
 const { Ranking } = require("../db/sequelizeSetup")
 const { errorHandler } = require("../errorHandler/errorHandler")
 
-const findAllRankings = (req, res) => {
-    res.json({ message: 'Hello Ranking!' })
+const findAllRankings = async (req, res) => {
+    try {
+        const result = await Ranking.findAll()
+        res.json({ message: `Il y a ${result.length} classements`, data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
 }
 
-const findRankingByPk = (req, res) => {
-    res.json({ message: `Ranking n°${req.params.id}` })
+const findRankingByPk = async (req, res) => {
+    try {
+        const result = await Ranking.findByPk(req.params.id);
+        if (!result) {
+            return res.status(404).json({ message: `La ville n'existe pas` })
+        }
+        
+        res.json({ message: 'Ville trouvée', data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
 }
 
 const createRanking = async (req, res) => {

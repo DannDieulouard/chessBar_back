@@ -1,12 +1,26 @@
 const { Tournament } = require("../db/sequelizeSetup")
 const { errorHandler } = require("../errorHandler/errorHandler")
 
-const findAllTournaments = (req, res) => {
-    res.json({ message: 'Hello Tournament!' })
+const findAllTournaments = async (req, res) => {
+    try {
+        const result = await Tournament.findAll()
+        res.json({ message: `Il y a ${result.length} tournois`, data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
 }
 
-const findTournamentByPk = (req, res) => {
-    res.json({ message: `Tournament n°${req.params.id}` })
+const findTournamentByPk = async (req, res) => {
+    try {
+        const result = await Tournament.findByPk(req.params.id);
+        if (!result) {
+            return res.status(404).json({ message: `Le tournoi n'existe pas` })
+        }
+        
+        res.json({ message: 'Tournoi trouvé', data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
 }
 
 const createTournament = async (req, res) => {

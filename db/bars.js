@@ -55,17 +55,6 @@ const bars = [
         created: new Date()
     },
     {
-        name: "Le Mosaic",
-        city: "Bordeaux",
-        address: "269 rue Judaïque 33000 Bordeaux",
-        imageUrl: "",
-        website: "https://www.instagram.com/mosaic.bieres_artisanales/",
-        phone: "05 56 98 84 66",
-        game_day: "Samedi",
-        game_time: "16h00",
-        created: new Date()
-    },
-    {
         name: "Le Magnus Pub",
         city: "Bordeaux",
         address: "32 rue de Cheverus 33000 Bordeaux",
@@ -74,6 +63,17 @@ const bars = [
         phone: "05 56 98 84 66",
         game_day: "Dimanche",
         game_time: "18h00",
+        created: new Date()
+    },
+    {
+        name: "Le Mosaic",
+        city: "Bordeaux",
+        address: "269 rue Judaïque 33000 Bordeaux",
+        imageUrl: "",
+        website: "https://www.instagram.com/mosaic.bieres_artisanales/",
+        phone: "05 56 98 84 66",
+        game_day: "Samedi",
+        game_time: "16h00",
         created: new Date()
     },
     {
