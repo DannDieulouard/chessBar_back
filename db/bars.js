@@ -177,7 +177,7 @@ const bars = [
     },
     {
         name: "Evasion",
-        city: "Rennes",
+        city: "Toulouse",
         address: "29 Grande Rue Saint-Michel 31400 Toulouse",
         imageUrl: "",
         website: "https://www.facebook.com/levasion.bar/",
