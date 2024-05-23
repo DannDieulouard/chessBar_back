@@ -21,7 +21,8 @@ const login = async (req, res) => {
             return res.status(400).json({ message: "Invalid Credentials" })
         }
 
-        const token = jwt.sign({ userId: result.id }, SECRET_KEY, { expiresIn: '24h' });
+        const token = jwt.sign({ userId: result.id, roleId: result.RoleId }, SECRET_KEY, { expiresIn: '24h' });
+        console.log(token)
         // Si correct, on envoie un message "login réussi"
         res.cookie("access_token", token).json({ message: "Login réussi" })
     } catch (error) {
