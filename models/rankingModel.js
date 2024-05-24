@@ -4,7 +4,9 @@ module.exports = (sequelize) => {
     return sequelize.define(
         'Ranking',
         {
-            // Model attributes are defined here
+            name: {
+                type: DataTypes.STRING,
+            },
         },
         {
             // options

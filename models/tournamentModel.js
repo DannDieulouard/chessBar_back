@@ -4,7 +4,15 @@ module.exports = (sequelize) => {
     return sequelize.define(
         'Tournament',
         {
-            // Model attributes are defined here
+            name: {
+                type: DataTypes.STRING,
+            },
+            game_day: {
+                type: DataTypes.STRING,
+            },
+            game_time: {
+                type: DataTypes.STRING,
+            },
         },
         {
             // options

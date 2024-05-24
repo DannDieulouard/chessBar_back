@@ -9,7 +9,6 @@ const findAllUsers = async (req, res) => {
     } catch (error) {
         errorHandler(error, res)
     }
-    res.json({})
 }
 
 const findUserByPk = async (req, res) => {

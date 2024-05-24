@@ -65,7 +65,7 @@ router
     *       500:
     *         description: Some server error 
     */
-    .get(protect, restrictTo('admin'), findAllUsers)
+    .get (findAllUsers)
 
 router
     .route('/signup')
@@ -94,10 +94,10 @@ router
     .post(createUser)
 
 router
-    .route('/profile/')
+    .route('/profile')
     /**
     * @openapi
-    * /api/users/:
+    * /api/users/profile:
     *   put:
     *    summary: The user can update his profile, by the id given in a jsonwebtoken
     *    tags: [Users]
@@ -122,7 +122,7 @@ router
     .put(protect, updateProfile)
     /**
     * @openapi
-    * /api/users/:
+    * /api/users/profile:
     *   delete:
     *    summary: The user can delete his profile, by the id given in a jsonwebtoken
     *    tags: [Users]
