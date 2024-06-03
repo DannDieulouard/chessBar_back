@@ -37,7 +37,6 @@ module.exports = (sequelize) => {
             game_time: {
                 type: DataTypes.STRING,
             },
-            
         },
         {
             onDelete: 'CASCADE'

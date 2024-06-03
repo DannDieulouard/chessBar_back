@@ -53,6 +53,24 @@ const findBarByPk = async (req, res) => {
     }
 }
 
+const findBarByCity = async (req, res) => {
+    try {
+        const result = await Bar.findAll(
+            {
+                where:
+                    { city: "Bordeaux" }
+            }
+        )
+        if (!result) {
+            return res.status(404).json({ message: `Le bar n'existe pas` })
+        }
+        
+        res.json({ message: 'Bar trouvé', data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
+}
+
 const createBar = async (req, res) => {
     try {
         req.body.UserId = req.user.id
@@ -106,6 +124,7 @@ module.exports = {
     createBar,
     createBarWithImg,
     findBarByPk,
+    findBarByCity,
     updateBar,
     deleteBar,
     searchBars,

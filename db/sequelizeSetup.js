@@ -41,8 +41,8 @@ User.belongsTo(Role);
 User.hasMany(Bar)
 Bar.belongsTo(User)
 
-City.hasMany(Bar)
-Bar.belongsTo(City)
+City.hasMany(Bar);
+Bar.belongsTo(City);
 
 const resetDb = process.env.NODE_ENV === "development"
 

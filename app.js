@@ -41,8 +41,6 @@ app.use('/api/tournaments', tournamentRouter)
 // route de fichiers static
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-const swagger = require('./configs/swagger')
-swagger(app)
 
 app.get('*', (req, res) => {
     res.status(404).json({ message: "Page not found" })

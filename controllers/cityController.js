@@ -12,7 +12,22 @@ const findAllCities = async (req, res) => {
 
 const findCityByPk = async (req, res) => {
     try {
-        const result = await Bar.findByPk(req.params.id);
+        const result = await City.findByPk(req.params.id);
+        if (!result) {
+            return res.status(404).json({ message: `La ville n'existe pas` })
+        }
+        
+        res.json({ message: 'Ville trouvée', data: result })
+    } catch (error) {
+        errorHandler(error, res)
+    }
+}
+
+const findCityByBar = async (req, res) => {
+    try {
+        const result = await City.findAll({
+            where: { city: "Bordeaux" },
+        });
         if (!result) {
             return res.status(404).json({ message: `La ville n'existe pas` })
         }

@@ -119,7 +119,7 @@ router
     *      500:
     *        description: Some error happened
     */
-    .put(protect, updateProfile)
+    .put(updateProfile)
     /**
     * @openapi
     * /api/users/profile:
@@ -144,7 +144,7 @@ router
     *      500:
     *        description: Some error happened
     */
-    .delete(protect, deleteProfile)
+    .delete(deleteProfile)
 
 router
     .route('/login')
