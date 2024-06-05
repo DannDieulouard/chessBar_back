@@ -81,7 +81,7 @@ const deleteUser = async (req, res) => {
 const updateProfile = async (req, res) => {
     // 1. récupérer la ligne de l'utilisateur au sein de la table User, sans le req.params.id
     try {
-        const result = await User.findByPk(req.user.id, { include: Role });
+        const result = await User.findByPk(req.params.id, { include: Role });
         if (req.body.password) {
             const hash = await bcrypt.hash(req.body.password, 8)
             req.body.password = hash

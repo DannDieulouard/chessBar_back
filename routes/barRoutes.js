@@ -8,11 +8,8 @@ const {
     updateBar,
     deleteBar,
     findAllBarsRawSQL,
-    createBarWithImg,
     searchBars } = require('../controllers/barController')
-const { protect, restrictTo} = require('../middlewares/auth')
-const multer = require('../middlewares/multer-config')
-const { Bar } = require('../db/sequelizeSetup')
+const { protect, restrictTo } = require('../middlewares/auth')
 
 router
     .route('/')
@@ -23,9 +20,6 @@ router
     .route('/rawSQL')
     .get(findAllBarsRawSQL)
 
-router
-    .route('/withImg')
-    .post(protect, multer, createBarWithImg)
 router
     .route('/search')
     .get(searchBars)

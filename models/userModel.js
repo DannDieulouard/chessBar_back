@@ -43,6 +43,9 @@ module.exports = (sequelize) => {
                     }
                 },
             },
+            phone: {
+                type: DataTypes.STRING
+            },
             howChessbar: {
                 type: DataTypes.TEXT
             },
