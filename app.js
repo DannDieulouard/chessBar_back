@@ -27,6 +27,7 @@ const userRouter = require('./routes/userRoutes')
 const cityRouter = require('./routes/cityRoutes')
 const rankingRouter = require('./routes/rankingRoutes')
 const tournamentRouter = require('./routes/tournamentRoutes')
+const participationRouter = require('./routes/participationRoutes')
 
 app.get('/', (req, res) => {
     res.json({ message: 'Homepage' })
@@ -37,10 +38,7 @@ app.use('/api/users', userRouter)
 app.use('/api/cities', cityRouter)
 app.use('/api/rankings', rankingRouter)
 app.use('/api/tournaments', tournamentRouter)
-
-// route de fichiers static
-app.use('/images', express.static(path.join(__dirname, 'images')));
-
+app.use('/api/participations', participationRouter)
 
 app.get('*', (req, res) => {
     res.status(404).json({ message: "Page not found" })

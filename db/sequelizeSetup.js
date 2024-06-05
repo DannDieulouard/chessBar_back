@@ -7,11 +7,13 @@ const RoleModel = require('../models/roleModel')
 const cityModel = require('../models/cityModel');
 const rankingModel = require('../models/rankingModel');
 const tournamentModel = require('../models/tournamentModel');
+const participationModel = require('../models/participationModel');
 const mockBars = require('./bars');
-const mockUsers = require('./users');
+const mockUsers = require('../configs/users');
 const mockCities = require('./cities');
 const mockRankings = require('./rankings');
 const mockTournaments = require('./tournaments');
+const mockParticipations = require('./participations');
 const env = process.env.NODE_ENV;
 const config = require('../configs/db-config.json')[env];
 
@@ -29,6 +31,7 @@ const Role = RoleModel(sequelize);
 const City = cityModel(sequelize);
 const Ranking = rankingModel(sequelize);
 const Tournament = tournamentModel(sequelize);
+const Participation = participationModel(sequelize);
 
 // Par défaut, tous les utilisateurs créés sont "user"
 Role.hasMany(User, {    
@@ -38,8 +41,14 @@ Role.hasMany(User, {
 });
 User.belongsTo(Role);
 
-User.hasMany(Bar)
-Bar.belongsTo(User)
+User.hasMany(Participation)
+Participation.belongsTo(User)
+
+Tournament.hasMany(Participation)
+Participation.belongsTo(Tournament)
+
+Bar.hasMany(Tournament)
+Tournament.belongsTo(Bar)
 
 City.hasMany(Bar);
 Bar.belongsTo(City);
@@ -92,6 +101,13 @@ sequelize.sync({ force: resetDb })
                     console.log(error)
                 })
         })
+        mockParticipations.forEach(participation => {
+            Participation.create(participation)
+                .then()
+                .catch(error => {
+                    console.log(error)
+                })
+        })
     })
     .catch((error) => {
         console.log(error)
@@ -101,4 +117,4 @@ sequelize.authenticate()
     .then(() => console.log('La connexion à la base de données a bien été établie.'))
     .catch(error => console.error(`Impossible de se connecter à la base de données ${error}`))
 
-module.exports = { sequelize, Bar, User, Role, City, Tournament, Ranking }
+module.exports = { sequelize, Bar, User, Role, City, Tournament, Ranking, Participation }
