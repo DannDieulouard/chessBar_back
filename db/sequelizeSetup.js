@@ -25,33 +25,33 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     logging: false
 });
 
-const Bar = BarModel(sequelize);
-const User = UserModel(sequelize);
-const Role = RoleModel(sequelize);
-const City = cityModel(sequelize);
-const Ranking = rankingModel(sequelize);
-const Tournament = tournamentModel(sequelize);
-const Participation = participationModel(sequelize);
+    const Bar = BarModel(sequelize);
+    const User = UserModel(sequelize);
+    const Role = RoleModel(sequelize);
+    const City = cityModel(sequelize);
+    const Ranking = rankingModel(sequelize);
+    const Tournament = tournamentModel(sequelize);
+    const Participation = participationModel(sequelize);
 
-// Par défaut, tous les utilisateurs créés sont "user"
-Role.hasMany(User, {    
-    foreignKey: {
-        defaultValue: 3,
-    },
-});
-User.belongsTo(Role);
+    // Par défaut, tous les utilisateurs créés sont "user"
+    Role.hasMany(User, {    
+        foreignKey: {
+            defaultValue: 3,
+        },
+    });
+    User.belongsTo(Role);
 
-User.hasMany(Participation)
-Participation.belongsTo(User)
+    User.hasMany(Participation)
+    Participation.belongsTo(User)
 
-Tournament.hasMany(Participation)
-Participation.belongsTo(Tournament)
+    Tournament.hasMany(Participation)
+    Participation.belongsTo(Tournament)
 
-Bar.hasMany(Tournament)
-Tournament.belongsTo(Bar)
+    Bar.hasMany(Tournament)
+    Tournament.belongsTo(Bar)
 
-City.hasMany(Bar);
-Bar.belongsTo(City);
+    City.hasMany(Bar);
+    Bar.belongsTo(City);
 
 const resetDb = process.env.NODE_ENV === "development"
 

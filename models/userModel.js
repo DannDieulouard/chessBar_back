@@ -17,8 +17,12 @@ module.exports = (sequelize) => {
                 },
             },
             password: {
+                type: DataTypes.STRING,
                 allowNull: false,
-                type: DataTypes.STRING
+                validate: {
+                    len: [8, 64], // Ensures the password is between 8 and 64 characters long
+                    notEmpty: true
+                }
             },
             surname: {
                 type: DataTypes.STRING
@@ -27,7 +31,14 @@ module.exports = (sequelize) => {
                 type: DataTypes.STRING
             },
             postCode: {
-                type: DataTypes.INTEGER
+                type: DataTypes.INTEGER,
+                validate: {
+                    isNumeric: true,
+                    len: [5, 5],
+                    min: 10000,
+                    max: 99999 
+                },
+                allowNull: false
             },
             city: {
                 type: DataTypes.STRING
@@ -44,7 +55,12 @@ module.exports = (sequelize) => {
                 },
             },
             phone: {
-                type: DataTypes.STRING
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    isNumeric: true,
+                    len: [10, 10]
+                }
             },
             howChessbar: {
                 type: DataTypes.TEXT

@@ -24,6 +24,7 @@ module.exports = (sequelize) => {
             },
             imageUrl: {
                 type: DataTypes.STRING,
+                isUrl: true,
             },
             website: {
                 type: DataTypes.STRING,
