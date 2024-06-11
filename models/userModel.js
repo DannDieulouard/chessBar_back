@@ -5,15 +5,32 @@ module.exports = (sequelize) => {
         'User',
         {
             // Model attributes are defined here
+            id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+            },
             username: {
                 type: DataTypes.STRING,
                 allowNull: false,
-                unique: true,
+                unique: {msg: "Enregistrement impossible : ce pseudo est déjà utilisé."},
                 validate: {
                     len: {
                         msg: "Le nom d'utilisateur doit avoir un nombre de caractères compris entre 3 et 50.",
                         args: [3, 50]
-                    }
+                    },
+                    notEmpty: {msg: "Le champ 'Pseudo' ne peut être vide."}
+                },
+            },
+            email: {
+                type: DataTypes.STRING,
+                allowNull: false,   
+                unique: {msg: "Enregistrement impossible : cet email est déjà utilisé."},
+                validate: {
+                    isEmail: {
+                        msg: "email incorrect",
+                    },
+                    notEmpty: {msg: "Le champ 'Email' ne peut être vide."}
                 },
             },
             password: {
@@ -21,37 +38,32 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 validate: {
                     len: [8, 64], // Ensures the password is between 8 and 64 characters long
-                    notEmpty: true
+                    notEmpty: {msg: "Le champ 'mot de passe' ne peut être vide."}
                 }
             },
-            surname: {
-                type: DataTypes.STRING
+            firstName: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notEmpty: {msg: "Le champ 'Prénom' ne peut être vide."}
+                }
             },
             name: {
-                type: DataTypes.STRING
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notEmpty: {msg: "Le champ 'Nom' ne peut être vide."}
+                }
             },
             postCode: {
                 type: DataTypes.INTEGER,
+                allowNull: false,
                 validate: {
+                    notEmpty: {msg: "Le champ 'Code postal' ne peut être vide."},
                     isNumeric: true,
                     len: [5, 5],
                     min: 10000,
                     max: 99999 
-                },
-                allowNull: false
-            },
-            city: {
-                type: DataTypes.STRING
-            },
-            // validation de mail
-            email: {
-                type: DataTypes.STRING,
-                allowNull: false,   
-                unique: true,
-                validate: {
-                    isEmail: {
-                        msg: "email incorrect",
-                    }
                 },
             },
             phone: {
@@ -59,8 +71,12 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 validate: {
                     isNumeric: true,
-                    len: [10, 10]
+                    len: [10, 10],
+                    notEmpty: {msg: "Le champ 'Téléphone' ne peut être vide."}
                 }
+            },
+            city: {
+                type: DataTypes.STRING
             },
             howChessbar: {
                 type: DataTypes.TEXT

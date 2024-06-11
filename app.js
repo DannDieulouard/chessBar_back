@@ -25,9 +25,9 @@ if (process.env.NODE_ENV === "development") {
 const barRouter = require('./routes/barRoutes')
 const userRouter = require('./routes/userRoutes')
 const cityRouter = require('./routes/cityRoutes')
-const rankingRouter = require('./routes/rankingRoutes')
 const tournamentRouter = require('./routes/tournamentRoutes')
 const participationRouter = require('./routes/participationRoutes')
+const rankingRouter = require('./routes/rankingRoutes')
 
 app.get('/', (req, res) => {
     res.json({ message: 'Homepage' })
@@ -36,9 +36,9 @@ app.get('/', (req, res) => {
 app.use('/api/bars', barRouter)
 app.use('/api/users', userRouter)
 app.use('/api/cities', cityRouter)
-app.use('/api/rankings', rankingRouter)
 app.use('/api/tournaments', tournamentRouter)
 app.use('/api/participations', participationRouter)
+app.use('/api/rankings', rankingRouter)
 
 app.get('*', (req, res) => {
     res.status(404).json({ message: "Page not found" })

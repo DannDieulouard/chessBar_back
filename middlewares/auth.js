@@ -39,7 +39,6 @@ const restrictTo = (labelRole) => {
             if (!rolesHierarchy[req.user.Role.label].includes(labelRole)) {
                 return res.status(403).json({ message: "Droits insuffisants" })
             }
-
             next()
         } catch (error) {
             errorHandler(error, res)
@@ -48,6 +47,7 @@ const restrictTo = (labelRole) => {
 }
 
 const restrictToOwnUser = (model) => {
+    // On va tester si l'utilisateur qui tente de faire une requête est bien l'auteur de la ressource
     return async (req, res, next) => {
         try {
             const result = await model.findByPk(req.params.id)
@@ -65,10 +65,6 @@ const restrictToOwnUser = (model) => {
         } catch (error) {
             errorHandler(error, res)
         }
-
-
-        // On va tester si l'utilisateur qui tente de faire une requête est bien l'auteur de la ressource
-
     }
 }
 

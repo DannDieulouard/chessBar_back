@@ -12,9 +12,9 @@
     "dev": "nodemon app.js"
   }
 ```
-6.  `process.env.PORT` sera différent selon l’environnement. On spécifie `const port = process.env.PORT || 5000` dans notre fichier racine
-7. Définir l'environnement d'exécution de nos scripts grace à la variable globale `process`, avec sa propriété `process.env` qui est accessible de manière globale dans tous nos fichiers
-9. On installe le package cross-env afin de définir les environnements d'exécution dans nos scripts du **`package.json`** **`npm install cross-env`** **`NODE_ENV=production`**
+5.  `process.env.PORT` sera différent selon l’environnement. On spécifie `const port = process.env.PORT || 5000` dans notre fichier racine
+6. Définir l'environnement d'exécution de nos scripts grace à la variable globale `process`, avec sa propriété `process.env` qui est accessible de manière globale dans tous nos fichiers
+7. On installe le package cross-env afin de définir les environnements d'exécution dans nos scripts du **`package.json`** **`npm install cross-env`** **`NODE_ENV=production`**
 
 ```js
 // On retire nodemon en production
@@ -32,12 +32,12 @@ if (process.env.NODE_ENV  ===  "development") {
 }
 ```
 
-10.  On versionne, puis on utilise la CLI de Heroku  **`heroku create`** *(dans le dashboard de heroku.com, on voit apparaître le projet ainsi créé, avec une url auto-générée)*
-11. On met à jour le projet en production  **`git commit`** **`git push heroku main`** 
-12.  Il est nécessaire d’ajouter un add-on sur le compte Heroku pour la gestion d’une bdd mariadb, en l’occurrence, il s’agit de **JawsDB Maria**
-13.  Heroku → click sur projet → configure add-on
-14.  récupérer les configurations de JawsDB sur l’onglet Overview
-15.  On configure l'ORM Sequelize selon l'environnement d'exécution, les configurations sont importées depuis **configs/db-configs.json** (*Ce fichier ne doit pas être publié sur Github, car il contient les données privées fournies par Heroku* 🤫)
+8.  On versionne, puis on utilise la CLI de Heroku  **`heroku create`** *(dans le dashboard de heroku.com, on voit apparaître le projet ainsi créé, avec une url auto-générée)*
+9. On met à jour le projet en production  **`git commit`** **`git push heroku main`** 
+10.  Il est nécessaire d’ajouter un add-on sur le compte Heroku pour la gestion d’une bdd mariadb, en l’occurrence, il s’agit de **JawsDB Maria**
+11.  Heroku → click sur projet → configure add-on
+12.  récupérer les configurations de JawsDB sur l’onglet Overview
+13.  On configure l'ORM Sequelize selon l'environnement d'exécution, les configurations sont importées depuis **configs/db-configs.json** (*Ce fichier ne doit pas être publié sur Github, car il contient les données privées fournies par Heroku* 🤫)
 
 ```js
 const  env  =  process.env.NODE_ENV;
@@ -50,12 +50,12 @@ const  sequelize  =  new  Sequelize(config.database, config.username, config.pas
 });
 ```
 
-16.  On retire le paramètre `force: true` → `sequelize.sync()` qui permet en développement de rafraîchir/écraser notre bdd à chaque modification de notre code
+14.  On retire le paramètre `force: true` → `sequelize.sync()` qui permet en développement de rafraîchir/écraser notre bdd à chaque modification de notre code
 ```js
 const  resetDb  =  process.env.NODE_ENV  ===  "development"
 sequelize.sync({ force:  resetDb })
 ```
-17.  On ajoute la gestion des Cross Origin policy CORS, `npm install cors`
+15.  On ajoute la gestion des Cross Origin policy CORS, `npm install cors`
 Dans le fichier racine app.js : on ajoute 
 ```js
 const  cors  =  require('cors')
