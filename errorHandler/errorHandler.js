@@ -12,7 +12,6 @@ const errorHandler = (error, res) => {
     if (error instanceof ValidationError) {
         return res.status(400).json({ message: error.message })
     }
-    console.log(error)
     res.status(500).json({ message: `Une erreur est survenue` })
 }
 

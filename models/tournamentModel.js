@@ -6,13 +6,25 @@ module.exports = (sequelize) => {
         {
             name: {
                 type: DataTypes.STRING,
-            },
-            game_day: {
+              },
+              city: {
                 type: DataTypes.STRING,
-            },
-            game_time: {
+              },
+              game_day: {
                 type: DataTypes.STRING,
-            },
+              },
+              game_time: {
+                type: DataTypes.STRING,
+              },
+              players: {
+                type: DataTypes.TEXT,
+                get() {
+                  return this.getDataValue('players') ? this.getDataValue('players').split(';') : [];
+                },
+                set(val) {
+                  this.setDataValue('players', val.join(';'));
+                }
+              }
         },
         {
             onDelete: 'CASCADE'

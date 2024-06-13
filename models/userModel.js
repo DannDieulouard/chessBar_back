@@ -15,10 +15,6 @@ module.exports = (sequelize) => {
                 allowNull: false,
                 unique: {msg: "Enregistrement impossible : ce pseudo est déjà utilisé."},
                 validate: {
-                    len: {
-                        msg: "Le nom d'utilisateur doit avoir un nombre de caractères compris entre 3 et 50.",
-                        args: [3, 50]
-                    },
                     notEmpty: {msg: "Le champ 'Pseudo' ne peut être vide."}
                 },
             },
@@ -57,9 +53,7 @@ module.exports = (sequelize) => {
             },
             postCode: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
                 validate: {
-                    notEmpty: {msg: "Le champ 'Code postal' ne peut être vide."},
                     isNumeric: true,
                     len: [5, 5],
                     min: 10000,

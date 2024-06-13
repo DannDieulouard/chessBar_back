@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { protect, restrictTo } = require('../middlewares/auth')
-const { createTournament, findAllTournaments, findTournamentByPk, updateTournament, deleteTournament } = require('../controllers/tournamentController')
+const { createTournament, findAllTournaments, findTournamentByPk, updateTournament, deleteTournament, subscribeTournament } = require('../controllers/tournamentController')
 
 router
     .route('/')
@@ -14,5 +14,10 @@ router
     .get(findTournamentByPk)
     .put(protect, restrictTo('admin'), updateTournament)
     .delete(protect, restrictTo('admin'), deleteTournament)
+
+    router
+    .route('/:id/subscribe')
+
+    .post(subscribeTournament)
 
 module.exports = router

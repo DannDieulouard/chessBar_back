@@ -1,7 +1,7 @@
 const bars = [
     {
         id: 1,
-        name: "L'atelier B",
+        name: "L'Atelier B",
         city: "Bordeaux",
         address: "29 rue de la Rousselle 33300 Bordeaux",
         imageUrl: "https://www.atelierb-bordeaux.fr/wp-content/uploads/2023/06/seminaire-bordeaux.jpg",

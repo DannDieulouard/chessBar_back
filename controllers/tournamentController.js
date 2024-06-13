@@ -59,4 +59,28 @@ const deleteTournament = async (req, res) => {
     }
 }
 
-module.exports = { findAllTournaments, findTournamentByPk, createTournament, updateTournament, deleteTournament }
+const subscribeTournament = async (req, res) => {
+    const { id } = req.params;
+    const { username } = req.body;
+  
+    try {
+      const tournament = await Tournament.findByPk(id);
+      if (tournament) {
+        const players = tournament.players;
+        if (players.length < 6) {
+          players.push(username);
+          tournament.players = players;
+          await tournament.save();
+          res.json({ success: true, tournament });
+        } else {
+          res.status(400).json({ success: false, message: 'Tournament is full' });
+        }
+      } else {
+        res.status(404).json({ success: false, message: 'Tournament not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ success: false, message: 'Internal Server Error', error });
+    }
+  }
+
+module.exports = { findAllTournaments, findTournamentByPk, createTournament, updateTournament, deleteTournament, subscribeTournament }
