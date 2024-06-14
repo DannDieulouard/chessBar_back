@@ -25,9 +25,8 @@ const findUserByPk = async (req, res) => {
 
 const createUser = async (req, res) => {
     try {
-        const hashPassword = await bcrypt.hash(req.body.password, 5)
+        const hashPassword = await bcrypt.hash(req.body.password, 10)
         req.body.password = hashPassword
-        console.log(req.body.password)
         if (req.body.RoleId) {
             return res.status(403).json({ message: 'Droit non modifiable' })
         }
